@@ -17,8 +17,14 @@
             "exitmenu": false
         },
         {
-            "name": "Restore",
+            "name": "Status",
             "priority": 3,
+            "action": "sh ./bin/status.sh",
+            "exitmenu": false
+        },
+        {
+            "name": "Restore",
+            "priority": 4,
             "action": "sh ./bin/restore.sh",
             "exitmenu": false
         }
