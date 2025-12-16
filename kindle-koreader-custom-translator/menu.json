@@ -1,0 +1,22 @@
+{
+	"items": [
+	{
+		"name": "KOReader Custom Translator",
+		"priority": -998,
+		"items": [
+		{
+            "name": "Install",
+            "priority": 1,
+            "action": "bin/install.sh",
+            "exitmenu": true
+		},
+		{
+            "name": "Restore",
+            "priority": 2,
+            "action": "bin/restore.sh",
+            "exitmenu": true
+		}
+		]
+	}
+	]
+}
