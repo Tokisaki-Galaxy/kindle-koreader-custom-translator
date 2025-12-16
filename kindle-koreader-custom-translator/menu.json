@@ -11,8 +11,14 @@
             "exitmenu": false
         },
         {
-            "name": "Restore",
+            "name": "Install (Use Proxy API)",
             "priority": 2,
+            "action": "sh ./bin/use_proxy.sh",
+            "exitmenu": false
+        },
+        {
+            "name": "Restore",
+            "priority": 3,
             "action": "sh ./bin/restore.sh",
             "exitmenu": false
         }

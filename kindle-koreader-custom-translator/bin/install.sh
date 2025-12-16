@@ -33,9 +33,35 @@ fi
 
 SRC_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 SRC_FILE="${SRC_DIR}/translator.lua"
+TMP_DOWNLOAD="${SRC_DIR}/translator.lua.download"
 DEST_DIR="${KO_DIR}/frontend/ui"
 DEST_FILE="${DEST_DIR}/translator.lua"
 BACKUP_FILE="${SRC_DIR}/translator.lua.bak"
+
+# Try to fetch the latest release version from GitHub; fall back to local file if offline.
+if command -v wget >/dev/null 2>&1; then
+    GITHUB_API="https://api.github.com/repos/Tokisaki-Galaxy/kindle-koreader-custom-translator/releases/latest"
+    TAG_NAME="$(wget -qO- --timeout=5 "$GITHUB_API" | sed -n 's/  "tag_name": "\(.*\)",/\1/p' | head -n 1)"
+    if [ -n "$TAG_NAME" ]; then
+        REMOTE_URL="https://raw.githubusercontent.com/Tokisaki-Galaxy/kindle-koreader-custom-translator/${TAG_NAME}/kindle-koreader-custom-translator/translator.lua"
+        msg "Online detected. Trying release ${TAG_NAME}"
+        if wget -qO "$TMP_DOWNLOAD" --timeout=15 "$REMOTE_URL"; then
+            if [ -s "$TMP_DOWNLOAD" ]; then
+                SRC_FILE="$TMP_DOWNLOAD"
+                msg "Downloaded latest translator.lua from release ${TAG_NAME}"
+            else
+                msg "Downloaded file is empty, using local translator.lua"
+                rm -f "$TMP_DOWNLOAD"
+            fi
+        else
+            msg "Download failed, using local translator.lua"
+        fi
+    else
+        msg "Cannot read release tag, using local translator.lua"
+    fi
+else
+    msg "wget not found, using local translator.lua"
+fi
 
 msg "Install start"
 [ -f "${SRC_FILE}" ] || { msg "Source file not found: ${SRC_FILE}"; exit 1; }
@@ -57,4 +83,6 @@ fi
 msg "Deploy custom translator -> ${DEST_FILE}"
 cp -p "${SRC_FILE}" "${DEST_FILE}"
 sync
+# Cleanup temp download if any
+[ -f "$TMP_DOWNLOAD" ] && rm -f "$TMP_DOWNLOAD"
 msg "Install complete"
