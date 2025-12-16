@@ -23,10 +23,9 @@
 
 ### 方法一：Kindle (通过 KUAL)
 
-1. 下载本项目的最新版本。
-2. 将解压后的 `kindle-koreader-custom-translator` 文件夹重命名为 `koreader-custom-translator`（可选，但建议保持简洁）。
-3. 将该文件夹复制到 Kindle 根目录下的 `extensions` 文件夹中。
-   - 路径应为：`/mnt/us/extensions/koreader-custom-translator/`
+1. [下载本项目的最新Release版本](https://github.com/Tokisaki-Galaxy/kindle-koreader-custom-translator/releases)。
+2. 将解压后的 `kindle-koreader-custom-translator` 复制到 Kindle 根目录下的 `extensions` 文件夹中。
+   - 路径应为：`/mnt/us/extensions/kindle-koreader-custom-translator/`
 4. 拔掉数据线，在 Kindle 上打开 **KUAL**。
 5. 找到 **KOReader Custom Translator** 菜单。
 6. 点击 **Install**。
