@@ -18,9 +18,20 @@ msg "Restoring..."
 
 set -e
 
-KO_DIR="${KO_DIR:-/mnt/us/koreader}"
+# Auto-detect KOReader directory if not set
+if [ -z "${KO_DIR}" ]; then
+    if [ -d "/mnt/onboard/.adds/koreader" ]; then
+        KO_DIR="/mnt/onboard/.adds/koreader" # Kobo
+    elif [ -d "/koreader" ]; then
+        KO_DIR="/koreader"
+    else
+        KO_DIR="/mnt/us/koreader" # Kindle default
+    fi
+fi
+
+BACKUP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 DEST_FILE="${KO_DIR}/frontend/ui/translator.lua"
-BACKUP_FILE="${DEST_FILE}.bak"
+BACKUP_FILE="${BACKUP_DIR}/translator.lua.bak"
 
 echo "Restore start"
 if [ -f "${BACKUP_FILE}" ]; then
