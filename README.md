@@ -32,7 +32,12 @@
    - 屏幕上方会显示安装状态。
    - 安装完成后，重启 KOReader 即可生效。
 
-### 方法二：手动安装 (Kobo, Android, Linux)
+### 方法二：手动覆盖核心文件
+如果你不使用 KUAL，可以手动替换 KOReader 的核心翻译文件。将项目文件夹中的 `translator.lua` 复制到 KOReader 的安装目录下的相应位置`pathtokoreader/frontend/ui/translator.lua`，覆盖原文件。
+
+例如如果你使用Kindle，路径可能是 `/mnt/us/koreader/frontend/ui/translator.lua`。
+
+### 方法三：手动安装 (Kobo, Android, Linux)
 
 如果你无法使用 KUAL，可以通过终端手动运行安装脚本。脚本会自动检测常见的 KOReader 安装路径。
 

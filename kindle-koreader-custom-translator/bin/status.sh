@@ -202,17 +202,18 @@ if [ -f "${BACKUP_FILE}" ]; then
 fi
 
 showmsg="DEST_FILE: ${dest_status}\n"
-showmsg="${showmsg}BACKUP_FILE: ${backup_status}\n"
+showmsg="BACKUP_FILE: ${backup_status}\n${showmsg}"
 
 if [ ! -f "${DEST_FILE}" ]; then
-    showmsg="${showmsg}translator.lua not found; cannot determine version"
+    showmsg="translator.lua not found; cannot determine version${showmsg}"
     msg "$showmsg"
     exit 1
 else
     if head -n 3 "${DEST_FILE}" | tr -d '\r' | grep -q "Custom Translate"; then
-        showmsg="${showmsg}Custom translator detected\n"
+        showmsg="Custom translator detected\n${showmsg}"
     else
-        showmsg="${showmsg}Original translator detected\n"
+        showmsg="Original translator detected\n${showmsg}"
     fi
+        showmsg="www.52pojie.cn sakura-galaxy\n${showmsg}"
     msg "$showmsg"
 fi
