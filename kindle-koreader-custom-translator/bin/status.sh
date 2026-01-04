@@ -214,6 +214,5 @@ else
     else
         showmsg="Original translator detected\n${showmsg}"
     fi
-        showmsg="www.52pojie.cn sakura-galaxy\n${showmsg}"
     msg "$showmsg"
 fi
