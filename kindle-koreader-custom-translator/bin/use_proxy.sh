@@ -42,8 +42,8 @@ fi
 
 DEST_FILE="${KO_DIR}/frontend/ui/translator.lua"
 TMP_PATCH="${PARENT_DIR}/translator.lua.proxy.tmp"
-ORIG_ENDPOINT='local CUSTOM_ENDPOINT = "https://translate.api.tokisaki.top/translate"'
-PROXY_ENDPOINT='local CUSTOM_ENDPOINT = "https://translate-proxy.api.tokisaki.top/translate"'
+ORIG_ENDPOINT='local CUSTOM_ENDPOINT = "https://translate.api.tski.uk/translate"'
+PROXY_ENDPOINT='local CUSTOM_ENDPOINT = "https://translate-proxy.api.tski.uk/translate"'
 
 [ -f "$DEST_FILE" ] || { msg "translator.lua not found: ${DEST_FILE}"; exit 1; }
 

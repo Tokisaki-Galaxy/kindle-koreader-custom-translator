@@ -25,7 +25,7 @@ This project is distributed as a KUAL (Kindle Unified Application Launcher) exte
 
 ## ✨ Features
 
-- **Custom Translation Source**: Uses a custom API endpoint (`translate.api.tokisaki.top`) instead of the default backend.
+- **Custom Translation Source**: Uses a custom API endpoint (`translate.api.tski.uk`) instead of the default backend.
 - **Wide Language Support**: Supports up to 249 languages, preserving KOReader's native auto-detection and Pinyin/Romaji features.
 - **One-click Install/Restore**:
   - **Kindle**: Install patches or restore the original version with one click via the KUAL menu.

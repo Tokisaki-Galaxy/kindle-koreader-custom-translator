@@ -15,7 +15,7 @@ local T = ffiUtil.template
 local _ = require("gettext")
 
 -- Custom translation backend endpoint (Cloudflare Worker)
-local CUSTOM_ENDPOINT = "https://translate.api.tokisaki.top/translate"
+local CUSTOM_ENDPOINT = "https://translate.api.tski.uk/translate"
 
 -- 20251003: 249 supported languages
 local AUTODETECT_LANGUAGE = "auto"
